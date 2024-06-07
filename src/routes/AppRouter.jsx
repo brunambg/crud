@@ -10,7 +10,7 @@ function AppRouter() {
         <Route path="/" element={<Feed/>}/>
         <Route path="/posts" element={<Posts/>}/>
         <Route path="/more" element={<More/>}/>
-        <Route path="/update" element={<Update/>}/>
+        <Route path="/update/:id" element={<Update/>}/>
     </Routes>
   )
 }

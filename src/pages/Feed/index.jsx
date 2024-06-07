@@ -34,7 +34,7 @@ function Feed() {
                 <p>{post.descricao}</p>
                 <div className="btns">
                   <div className="btn-edit">
-                    <Link to="/update">
+                    <Link to={`/update/${post.id}`}>
                       <button>editar</button>
                     </Link>
                   </div>

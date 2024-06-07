@@ -2,8 +2,9 @@ import Header from "../../components/Header";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 const validationPost = yup.object().shape({
   titulo: yup
@@ -21,17 +22,26 @@ const validationPost = yup.object().shape({
 });
 
 function Update() {
+  useEffect(() => {
+    axios
+      .get(`https://6650d72a20f4f4c442764754.mockapi.io/posts/${id}`)
+      .then((response) => {
+        reset(response.data);
+      });
+  });
+
+  const {id} = useParams();
   let navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, reset
   } = useForm({ resolver: yupResolver(validationPost) });
 
   const addPost = (data) =>
     axios
-      .post("https://6650d72a20f4f4c442764754.mockapi.io/posts", data)
+      .put(`https://6650d72a20f4f4c442764754.mockapi.io/posts/${id}`, data)
       .then(() => {
         console.log("Deu certo");
         navigate("/");
