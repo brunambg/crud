@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import Header from "../../components/Header";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./style.css";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,7 +15,18 @@ const validationPost = yup.object().shape({
 
 function Posts() {
   const {register,handleSubmit, formState: { errors }} = useForm({resolver:yupResolver(validationPost)});
-  const addPost = data => console.log(data);
+  const addPost = (data) =>
+  axios
+    .post("https://6650d72a20f4f4c442764754.mockapi.io/posts", data)
+    .then(() => {
+      console.log("Deu certo");
+      navigate("/");
+    })
+
+    .catch(() => console.log("Deu errado"));
+    
+  let navigate = useNavigate();
+
   return (
     <div>
       <Header />

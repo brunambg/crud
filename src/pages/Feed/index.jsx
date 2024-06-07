@@ -1,46 +1,57 @@
 import { Link } from "react-router-dom";
 import HeaderMain from "../../components/HeaderMain";
-import Pena from "../../assets/myMelody.svg"
-import './style.css';
+import MyMelody from "../../assets/myMelody.svg"
+import "./style.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://6650d72a20f4f4c442764754.mockapi.io/posts")
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch(() => {
+        console.log("Deu errado");
+      });
+  }, []);
   return (
     <div>
       <HeaderMain />
 
       <main>
         <div className="cards">
-          <div className="card">
-            <header>
-              <h1>Consumindo API</h1>
-              <img src={Pena} alt="Imagem" />
-            </header>
-            <div className="line"></div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, eveniet eligendi. Sunt nostrum, architecto
-              voluptatibus fugit repellat excepturi id, commodi quasi illo
-              voluptate laudantium molestias quam, earum magnam tempora
-              voluptas?
-            </p>
-            <div className="btns">
-              <div className="btn-edit">
-                <Link to="/update">
-                  <button>Editar</button>
-                </Link>
-              </div>
+          {posts.map((post, key) => {
+            return (
+              <div className="card" key={key}>
+                <header>
+                  <h2>{post.titulo}</h2>
+                  <img src={MyMelody} alt="Imagem" />
+                </header>
+                <div className="line"></div>
+                <p>{post.descricao}</p>
+                <div className="btns">
+                  <div className="btn-edit">
+                    <Link to="/update">
+                      <button>editar</button>
+                    </Link>
+                  </div>
 
-              <div className="btn-readmore">
-                <Link to="/more">
-                  <button>Ler Mais</button>
-                </Link>
-              </div>
+                  <div className="btn-readmore">
+                    <Link to="/more">
+                      <button>Ler Mais</button>
+                    </Link>
+                  </div>
 
-              <div className="btn-delete">
-                <button>Apagar</button>
+                  <div className="btn-delete">
+                    <button>Apagar</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </main>
     </div>
