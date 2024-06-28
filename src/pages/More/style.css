@@ -1,0 +1,166 @@
+.loading {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-gif {
+    width: 250px;
+    height: auto;
+    animation-duration: 100s;
+}
+
+header {
+    background-color: #FADCD9;
+    color: #F79489;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100px;
+}
+
+.logo h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #FADCD9;
+    cursor: pointer;
+}
+
+.btn-newPost button,
+.btn-edit button,
+.btn-readmore button,
+.btn-delete button {
+    font-size: 1.2rem;
+    font-family: Heebo;
+    font-weight: 700;
+    background-color: #F8AFA6;
+    border: 0;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.btn-newPost button:hover,
+.btn-edit button:hover,
+.btn-readmore button:hover,
+.btn-delete button:hover {
+    background-color: #FADCD9;
+    box-shadow: 0 0 15px #F79489;
+    color: #F79489;
+}
+
+main header {
+    display: flex;
+}
+
+.cards .card h2 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+img {
+    width: 80px;
+    height: auto;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.modal {
+    width: 80px;
+    height: 100px;
+    background-color: #F79489;
+}
+
+main .cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+main .cards .card {
+    margin: 0 auto;
+    background-color: #FADCD9;
+    padding: 30px 40px;
+    width: 600px;
+    border-radius: 7px;
+    margin-top: 40px;
+}
+
+.cards .card header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.card header h2 {
+    font-family: Noto Sans;
+    font-weight: 700;
+    color: #F79489;
+    font-size: 1.7rem;
+}
+
+.line {
+    background-color: #F79489;
+    height: 2px;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    max-width: 500px;
+    font-family: Noto Sans;
+    font-weight: 500;
+    color: #F79489;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.card {
+    margin: 0 auto;
+    background-color: #FADCD9;
+    padding: 30px 40px;
+    width: 80%;
+    border-radius: 7px;
+    margin-top: 40px;
+}
+
+.card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card header h2 {
+    font-family: Noto Sans;
+    font-weight: 700;
+    color: #F79489;
+    font-size: 2rem;
+}
+
+.card .line {
+    background-color: #F79489;
+    height: 2px;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 1.2rem;
+    font-family: Noto Sans;
+    font-weight: 500;
+    color: #F79489;
+}
